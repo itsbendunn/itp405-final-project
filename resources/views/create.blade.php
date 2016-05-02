@@ -12,12 +12,7 @@
             <?php foreach ($errors->all() as $error) :?>
                 <h4 style="color: red"><?php echo $error ?></h4>
             <?php endforeach; ?>
-        <?php endif ?>
-        Place ID: {{$place_id}}
-        <br/>
-
-        User ID:
-        Creating Review for {{$name}}
+        <h4>Creating Review for {{$name}}</h4>
 
 
         {!! Form::open(['url' => "/create", 'method' => 'post']) !!}

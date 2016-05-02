@@ -22,7 +22,6 @@
                 <ul class="nav navbar-nav navbar-right">
 
                     <li><a href="/search">Search</a></li>
-                    {{--<li><a href="/about">About</a></li>--}}
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
@@ -39,7 +38,7 @@
                         </li>
                     @endif
                 </ul>
-            </div><!-- /.navbar-collapse -->
+            </div>
     </nav>
     @yield('header')
     @yield('content')

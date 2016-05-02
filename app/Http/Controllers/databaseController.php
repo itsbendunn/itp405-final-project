@@ -47,14 +47,6 @@ class databaseController extends Controller{
         $review->place_id = $request->input('place_id');
         $review->save();
 
-
-//        $review = new review([
-//            'review_title' => $request->input('review_title'),
-//            'review_text'=> $request->input('review_text'),
-//            'user_id' => Auth::id(),
-//            'rating_id' => $request->input('rating_id'),
-//            'place_id' => $request->input('place_id')
-//        ]);
         return redirect::back()
             ->with('success', true);
     }
