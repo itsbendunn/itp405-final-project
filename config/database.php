@@ -46,10 +46,23 @@ return [
 
     'connections' => [
 
-        'sqlite' => [
+        'sqlite_testing' => [
             'driver' => 'sqlite',
-            'database' => database_path('database.sqlite'),
+            'database' => ':memory:',
             'prefix' => '',
+        ],
+
+        'db_test' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', 'itp460.usc.edu'),
+            'database' => env('DB_DATABASE', 'food-poisoning'),
+            'username' => env('DB_USERNAME', 'dunnb'),
+            'password' => env('DB_PASSWORD', 'iambread'),
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
         ],
 
         'mysql' => [
@@ -77,6 +90,8 @@ return [
             'prefix' => '',
             'schema' => 'public',
         ],
+
+
 
     ],
 
