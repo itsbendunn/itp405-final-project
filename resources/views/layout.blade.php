@@ -17,12 +17,12 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/search">The Shitty App</a>
+                <a class="navbar-brand" href="/search">The Food Review App</a>
             </div>
                 <ul class="nav navbar-nav navbar-right">
 
                     <li><a href="/search">Search</a></li>
-                    <li><a href="/about">About</a></li>
+                    {{--<li><a href="/about">About</a></li>--}}
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>

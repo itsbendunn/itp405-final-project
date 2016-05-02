@@ -157,7 +157,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Vovanmix\GoogleApi\ServiceProvider::class,
         'GoogleMaps\ServiceProvider\GoogleMapsServiceProvider',
-        'Illuminate\Html\HtmlServiceProvider',
+//        'Illuminate\Html\HtmlServiceProvider',
+        Collective\Html\HtmlServiceProvider::class
 
     ],
 
@@ -206,8 +207,10 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'GoogleMaps' => 'GoogleMaps\Facade\GoogleMapsFacade',
         'GooglePlaces' => Vovanmix\GoogleApi\Facade::class,
-        'Form'=> 'Illuminate\Html\FormFacade',
-        'HTML'=> 'Illuminate\Html\HtmlFacade',
+//        'Form'=> 'Illuminate\Html\FormFacade',
+//        'HTML'=> 'Illuminate\Html\HtmlFacade',
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
