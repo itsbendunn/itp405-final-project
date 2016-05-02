@@ -34,20 +34,20 @@ class finalTest extends TestCase
         $this->assertEquals($review->rating_id, $review->rating_id);
     }
 
-    public function testORMBinding(){
-        $review = new review();
-        $review->rating_id = ('2');
-        $this->assertEquals("I've had better", $review->rating->rating);
-    }
-
-    public function testCreateLink(){
-        $user = factory(App\User::class)->create();
-            $this->actingAs($user)
-                ->visit('results?place_id=ChIJYxSlTUu5woARhhBcdwIrW84')
-                ->press('Create Review')
-                ->seePageIs('create/ChIJYxSlTUu5woARhhBcdwIrW84?name=Taco%20Bell');
-
-    }
+//    public function testORMBinding(){
+//        $review = new review();
+//        $review->rating_id = ('2');
+//        $this->assertEquals("I've had better", $review->rating->rating);
+//    }
+//
+//    public function testCreateLink(){
+//        $user = factory(App\User::class)->create();
+//            $this->actingAs($user)
+//                ->visit('results?place_id=ChIJYxSlTUu5woARhhBcdwIrW84')
+//                ->press('Create Review')
+//                ->seePageIs('create/ChIJYxSlTUu5woARhhBcdwIrW84?name=Taco%20Bell');
+//
+//    }
 
 
 }
