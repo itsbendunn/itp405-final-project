@@ -1,32 +1,24 @@
-language: php
+# Set php version through phpenv. 5.3, 5.4 and 5.5 available
+phpenv local 5.5
 
-php:
-  - 5.6
-  - 7.0
-  - hhvm
+# Create my testing database
+mysql -e 'create database testing;'
 
-env:
-  global:
-    - setup=basic
+# Install dependencies through Composer
+composer install --prefer-source --no-interaction
 
-matrix:
-  include:
-    - php: 5.6
-      env: setup=lowest
-    - php: 5.6
-      env: setup=stable
+# Migrate and seed database using the APP_ENV environment variable of 'testing'
+php artisan migrate --env="testing"
+php artisan db:seed --env="testing"
 
-sudo: false
+# Start the PHP server
+php artisan serve >/dev/null 2>&1 &
 
-services:
-  - redis-server
+# Rename phpunit.xml
+cp phpunit.xml.ci phpunit.xml
 
-before_install:
-  - travis_retry composer self-update
+# Run PHPUnit tests
+vendor/bin/phpunit
 
-install:
-  - if [[ $setup = 'basic' ]]; then travis_retry composer install --no-interaction --prefer-dist; fi
-  - if [[ $setup = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-stable; fi
-  - if [[ $setup = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-lowest --prefer-stable; fi
-
-script: vendor/bin/phpunit
+# On success, alert Envoyer.io
+wget $ENVOYER_URL
