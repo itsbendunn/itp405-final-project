@@ -12,6 +12,7 @@
             <?php foreach ($errors->all() as $error) :?>
                 <h4 style="color: red"><?php echo $error ?></h4>
             <?php endforeach; ?>
+        <?php endif ?>
         <h4>Creating Review for {{$name}}</h4>
 
 
